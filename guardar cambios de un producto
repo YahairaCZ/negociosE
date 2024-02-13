@@ -1,0 +1,16 @@
+// función para guardar los cambios al editar un producto
+		function guardarCambios() {
+			var nuevoProducto = document.getElementById("producto").value;
+			var nuevaDescripcion = document.getElementById("descripcion").value;
+			var nuevaFecha = document.getElementById("fecha").value;
+			productoEditando.cells[0].innerHTML = nuevoProducto;
+			productoEditando.cells[1].innerHTML = nuevaDescripcion;
+			productoEditando.cells[2].innerHTML = nuevaFecha;
+			document.getElementById("producto").value = "";
+			document.getElementById("descripcion").value = "";
+			document.getElementById("fecha").value = "";
+			document.getElementById("agregar").style.display = "inline";
+			document.getElementById("editar").style.display = "none";
+			productoEditando = null;
+		}
+  
