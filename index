@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lista de productos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="estilos">
+	<script src="Agregar"></script>
+    <script src="Editar"></script>
+    <script src="Eliminar"></script>
+    <script src="guardar cambios de un producto"></script>
+</head>
+<body style="background-color: rgb(53, 218, 127)">
+	<header>
+		<h1>Agregar producto</h1>
+	</header>
+	<main>
+		<form class="formulario">
+			<label for="producto">Producto:</label>
+			<input type="text" id="producto" name="producto"><br><br>
+			<label for="descripcion">Descripción:</label>
+			<input type="text" id="descripcion" name="descripcion"><br><br>
+			<label for="fecha">Fecha de introducción:</label>
+			<input type="date" id="fecha" name="fecha"><br><br>
+			<div class="botones">
+				<input type="button" value="Agregar" onclick="agregarProducto()" id="agregar">
+				<input type="button" value="Guardar cambios" onclick="guardarCambios()" id="editar" style="display:none">
+			</div>
+		</form>
+		
+		<h2>Productos Agregados</h2>
+		<table id="tablaProductos">
+			<thead>
+				<tr>
+					<th>Producto</th>
+					<th>Descipción</th>
+					<th>Fecha de introducción</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>
