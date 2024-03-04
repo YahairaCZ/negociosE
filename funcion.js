@@ -25,3 +25,8 @@ var productoEditando = null;
 			document.getElementById("fecha").value = "";
 			//document.getElementById("idDelElemento").appendChild(imagen);
 			
+		// función para eliminar un producto existente
+		function eliminarProducto(button) {
+			var row = button.parentNode.parentNode;
+			row.parentNode.removeChild(row);
+		}
