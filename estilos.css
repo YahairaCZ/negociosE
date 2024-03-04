@@ -7,7 +7,7 @@ body {
 }
 
 header {
-	background-color: #b31237;
+	background-color: #1252b3;
 	padding: 20px;
 	font-family: Helvetica;
 	text-align: center;
@@ -49,7 +49,7 @@ h2 {
 	padding: 10px;
 	border-radius: 5px;
 	border: none;
-	background-color: #7abf66;
+	background-color: #667ebf;
 	color: rgb(0, 0, 0);
 	cursor: pointer;
 	margin-right: 10px;
