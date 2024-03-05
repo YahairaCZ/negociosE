@@ -81,6 +81,8 @@ function editarProducto(button) {
 function eliminarProducto(button) {
     var row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
+    var nota = document.createElement('p');
+    nota.innerText = 'Se eliminó el producto: ' + producto;
 }
 
 function guardarCambios() {
