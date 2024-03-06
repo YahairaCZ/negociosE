@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <title>Lista de productos</title>
     <meta charset="UTF-8">
@@ -7,43 +7,46 @@
     <link rel="stylesheet" href="estilos.css">
     <script src="funcion.js"></script>
 </head>
-<body>
+<body style="background-color: rgb(255, 255, 255)">
     <header>
         <h1>Agregar producto</h1>
     </header>
     <main>
-        <div class="container">
-            <form class="formulario">
-                <label for="producto">Producto:</label>
-                <input type="text" id="producto" name="producto"><br>
-                <label for="descripcion">Descripción:</label>
-                <input type="text" id="descripcion" name="descripcion"><br>
-                <label for="fecha">Fecha de introducción:</label>
-                <input type="date" id="fecha" name="fecha"><br>
-                <label for="imagen">Seleccionar imagen:</label>
-                <input type="file" id="imagen" name="imagen" accept="image/*"><br>
-                <div class="botones">
-                    <button type="button" onclick="agregarProducto()" id="agregar">Agregar</button>
-                    <input type="button" value="Guardar cambios" onclick="guardarCambios()" id="editar" style="display:none">
-                </div>
-                <div id="imagenPreview"></div>
-            </form>
-            
-            <h2>Productos Agregados</h2>
-            <table id="tablaProductos">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Descripción</th>
-                        <th>Fecha de introducción</th>
-                        <th>Imagen</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+        <form class="formulario">
+            <label for="producto">Producto:</label>
+            <input type="text" id="producto" name="producto"><br><br>
+            <label for="precio">Precio:</label>
+            <input type="number" name="precio" id="precio" step="any"><br><br>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion"><br><br>
+            <label for="fecha">Fecha de introducción:</label>
+            <input type="date" id="fecha" name="fecha"><br><br>
+            <label for="imagen">Seleccionar imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*"><br><br>
+            <div class="botones">
+                <button type="button" onclick=agregarProducto() id="agregar">Agregar</button>
+                <input type="button" value="Guardar cambios" onclick="guardarCambios()" id="editar" style="display:none">
+            </div>
+            <div id="imagenPreview"></div>
+
+        </form>
+        
+        <h2>Productos Agregados</h2>
+        <table id="tablaProductos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th>Fecha de introducción</th>
+                    <th>Imagen</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </main>
 </body>
 </html>
