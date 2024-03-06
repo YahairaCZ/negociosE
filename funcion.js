@@ -1,5 +1,9 @@
+var contadorId = 1;
 function agregarProducto() {
+    // Genera un ID aleatorio
+    var id = contadorId++;
     var producto = document.getElementById("producto").value;
+    var precio = document.getElementById("precio").value;
     var descripcion = document.getElementById("descripcion").value;
     var fecha = document.getElementById("fecha").value;
     
@@ -29,16 +33,21 @@ function agregarProducto() {
             var newCell3 = newRow.insertCell(2);
             var newCell4 = newRow.insertCell(3);
             var newCell5 = newRow.insertCell(4);
+            var newCell6 = newRow.insertCell(5);
+            var newCell7 = newRow.insertCell(6);
 
             // Insertar datos y elementos en las celdas
-            newCell1.innerHTML = producto;
-            newCell2.innerHTML = descripcion;
-            newCell3.innerHTML = fecha;
-            newCell4.appendChild(imagen);
-            newCell5.innerHTML = '<button onclick="editarProducto(this)">Editar</button> <button onclick="eliminarProducto(this)">Eliminar</button>';
+            newCell1.innerHTML = id;
+            newCell2.innerHTML = producto;
+            newCell3.innerHTML = precio;
+            newCell4.innerHTML = descripcion;
+            newCell5.innerHTML = fecha;
+            newCell6.appendChild(imagen);
+            newCell7.innerHTML = '<button onclick="editarProducto(this)">Editar</button> <button onclick="eliminarProducto(this)">Eliminar</button>';
 
             // Limpiar los campos de entrada después de agregar el producto
             document.getElementById("producto").value = "";
+            document.getElementById("precio").value = "";
             document.getElementById("descripcion").value = "";
             document.getElementById("fecha").value = "";
         };
@@ -50,17 +59,18 @@ function agregarProducto() {
     }
 }
 
-
 function editarProducto(button) {
     var row = button.parentNode.parentNode;
     productoEditando = row;
-    var producto = row.cells[0].innerHTML;
-    var descripcion = row.cells[1].innerHTML;
-    var fecha = row.cells[2].innerHTML;
-    var imagen = row.cells[3].querySelector('img').src; // Obtener la URL de la imagen
+    var producto = row.cells[1].innerHTML;
+    var precio = row.cells[2].innerHTML;
+    var descripcion = row.cells[3].innerHTML;
+    var fecha = row.cells[4].innerHTML;
+    var imagen = row.cells[5].querySelector('img').src; // Obtener la URL de la imagen
     
     // Mostrar los detalles del producto en los campos de entrada
     document.getElementById("producto").value = producto;
+    document.getElementById("precio").value = precio;
     document.getElementById("descripcion").value = descripcion;
     document.getElementById("fecha").value = fecha;
     
@@ -76,17 +86,15 @@ function editarProducto(button) {
     document.getElementById("editar").style.display = "inline";
 }
 
-
 // función para eliminar un producto existente
 function eliminarProducto(button) {
     var row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
-    var nota = document.createElement('p');
-    nota.innerText = 'Se eliminó el producto: ' + producto;
 }
 
 function guardarCambios() {
     var nuevoProducto = document.getElementById("producto").value;
+    var nuevoPrecio = document.getElementById("precio").value;
     var nuevaDescripcion = document.getElementById("descripcion").value;
     var nuevaFecha = document.getElementById("fecha").value;
 
@@ -109,16 +117,18 @@ function guardarCambios() {
             imagen.style.maxWidth = "100px";
             
             // Actualizar la imagen en la tabla
-            productoEditando.cells[3].innerHTML = '';
-            productoEditando.cells[3].appendChild(imagen);
+            productoEditando.cells[5].innerHTML = '';
+            productoEditando.cells[5].appendChild(imagen);
 
             // Actualizar los detalles del producto en la tabla
-            productoEditando.cells[0].innerHTML = nuevoProducto;
-            productoEditando.cells[1].innerHTML = nuevaDescripcion;
-            productoEditando.cells[2].innerHTML = nuevaFecha;
+            productoEditando.cells[1].innerHTML = nuevoProducto;
+            productoEditando.cells[2].innerHTML = nuevoPrecio;
+            productoEditando.cells[3].innerHTML = nuevaDescripcion;
+            productoEditando.cells[4].innerHTML = nuevaFecha;
 
             // Limpiar los campos de entrada después de guardar los cambios
             document.getElementById("producto").value = "";
+            document.getElementById("precio").value = "";
             document.getElementById("descripcion").value = "";
             document.getElementById("fecha").value = "";
 
@@ -137,12 +147,14 @@ function guardarCambios() {
         reader.readAsDataURL(file);
     } else {
         // Si no se selecciona una nueva imagen, simplemente actualizar los detalles del producto en la tabla
-        productoEditando.cells[0].innerHTML = nuevoProducto;
-        productoEditando.cells[1].innerHTML = nuevaDescripcion;
-        productoEditando.cells[2].innerHTML = nuevaFecha;
+        productoEditando.cells[1].innerHTML = nuevoProducto;
+        productoEditando.cells[2].innerHTML = nuevoPrecio;
+        productoEditando.cells[3].innerHTML = nuevaDescripcion;
+        productoEditando.cells[4].innerHTML = nuevaFecha;
 
         // Limpiar los campos de entrada después de guardar los cambios
         document.getElementById("producto").value = "";
+        document.getElementById("precio").value = "";
         document.getElementById("descripcion").value = "";
         document.getElementById("fecha").value = "";
 
